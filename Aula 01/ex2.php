@@ -4,13 +4,6 @@
         array('nome' => 'José', 'idade' => 25, 'cidade' => 'Nova Friburgo'),
         array('nome' => 'Maria', 'idade' => 22, 'cidade' => 'Bom Jardim')
     )
-    /*$soma = function(int $a,int $b):int {
-        return $a + $b;
-    };
-    echo"<br/>";
-    var_dump($soma(5,6));
-*/
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
