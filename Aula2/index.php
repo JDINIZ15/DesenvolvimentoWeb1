@@ -29,6 +29,7 @@
             'cidade_nascimento'=>array('tipo'=> 'text', 'nome'=> 'cidade', 'label'=> 'Cidade de Nasc.', 'placeholder'=> 'Informe a cidade que você nasceu.'),
             'estado_nascimento'=>array('tipo'=> 'select', 'nome'=> 'estado_nascimento', 'label'=> 'Estado de Nasc.', 'opcoes'=> array("RJ"=> "Rio de Janeiro", "SP"=>"São Paulo", "ES"=>"Espírito Santo", "MG"=>"Minas Gerais", "O"=> "Outros")),
             'cpf'=>array('tipo'=> 'number', 'nome'=> 'cpf', 'label'=> 'CPF', 'placeholder'=> 'Informe seu CPF.', 'funcao_validacao'=> 'validaCpf'),
+            'descricao'=>array('tipo'=> 'textarea', 'nome'=> 'descricao', 'label'=> 'Descrição', 'placeholder'=> 'Faça uma descrição sobre você.', 'obrigatorio'=>false),
             'botao_enviar'=>array('tipo'=> 'submit', 'nome'=> 'enviar', 'label'=> 'Enviar'),
             'botao_limpar_form'=>array('tipo'=> 'reset', 'nome'=> 'reset', 'label'=> 'Limpar Formulário'),
         )
@@ -57,7 +58,12 @@
             if(($campo['tipo']=="select")){
                 criarSelect($campo, $chave);
             }
-
+            if(($campo['tipo']=="checkbox") || ($campo['tipo']=="radio")){
+                criarCheckRadio($campo, $chave);
+            }
+            if(($campo['tipo']=="textarea")){
+                criaTextarea($campo, $chave);
+            }
         echo"</div>";
     }
 
@@ -95,14 +101,24 @@
     //Criar os inputs checkbox e radio
 
     function criarCheckRadio($x, $chaves){
-        echo"<label>".$chaves."</label>";
+        echo"<label>".$x['label']."</label>";
 
         foreach($x['opcoes'] as $indice=>$campo){
-            
+            echo"<input type=".$x['tipo']." id=".$x['nome']."_".$indice." name=".$x['nome']." value=".$indice.">";
+            echo"<label for=".$x['nome']."_".$indice.">".$campo."</label>";
         }
     }
 
+    //cria textarea
+    function criaTextarea ($x, $chave){
+        echo"<label for=".$x['nome'].">".$x['label']."</label>";
+        echo"<".$x['tipo']. " id=".$chave." name=".$x['nome']." placeholder=".$x['placeholder']."></".$x['tipo'].">";
+    }
+
+
     criaFormulario($formulario);
+
 ?>
+
 </body>
 </html>
