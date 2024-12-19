@@ -77,9 +77,9 @@
         };
 
        
-        $nome = $_POST['nome'];
-        $estado = $_POST['estado'];
-        $cidade = $_POST['cidade'];
+        $nome = $_GET['nome'];
+        $estado = $_GET['estado'];
+        $cidade = $_GET['cidade'];
 
     
 
@@ -87,10 +87,10 @@
 
         $arrayFiltrado = array_filter($pessoas, function ($pessoa){
 
-            $nome = $_POST['nome'];
-            $estado = $_POST['estado'];
-            $cidade = $_POST['cidade'];
-            $idadeForm = $_POST['idade'];
+            $nome = $_GET['nome'];
+            $estado = $_GET['estado'];
+            $cidade = $_GET['cidade'];
+            $idadeForm = $_GET['idade'];
 
             
 
