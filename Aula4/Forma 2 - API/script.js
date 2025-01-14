@@ -3,7 +3,7 @@
     form.setAttribute("action"," ");
     form.submit();
 };*/
-alert("xablau");
+
 document.addEventListener("DOMContentLoaded", () => {
   var selectEstado = document.getElementById("estado");
   selectEstado.addEventListener("change", carregaCidades);
@@ -32,7 +32,7 @@ function carregaCidades() {
   var formulario = new FormData();
   formulario.append("estado", pegaValorEstado());
   fetch(
-    "http://localhost/trabalhos/Aula4/Aula4/Forma%202%20-%20API/cidade.php",
+    "http://localhost/trabalhos/Aulas-Trabalho/DesenvolvimentoWeb1/Aula4/Forma%202%20-%20API/cidade.php",
     {
       mode: "no-cors",
       method: "POST",
